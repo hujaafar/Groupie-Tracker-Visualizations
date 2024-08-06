@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artist Cards</title>
+<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+<link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+<div id="hero" class="hero-img">
+    <div class="hero-text">
+        <h1>GROUPIE TRACKER</h1>
+        <button class="discover-button" onclick="scrollToCards()">
+            
+            <span><i class="fa-solid fa-arrow-down"></i></span>
+        </button>
+        
+    </div>
+</div>
+
+<div id="artistCards">
+    {{range .}}
+    <a href="/details?id={{.ID}}">
+        <div class="card">
+            <div class="container">
+                <h4>{{.Name}}</h4>
+                <img src="{{.Image}}" alt="{{.Name}}" style="width:100%" loading="lazy">
+            </div>
+        </div>
+    </a>
+    {{end}}
+</div>
+
+<script>
+    function scrollToCards() {
+        const cardsSection = document.getElementById('artistCards');
+        cardsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

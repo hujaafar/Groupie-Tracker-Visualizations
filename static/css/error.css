@@ -1,0 +1,63 @@
+/* Global styles for HTML and body */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fef7fc;
+    color: #66FCF1;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Error Page Styles */
+.error {
+    text-align: center;
+    margin-top: 20vh; /* Adjust as needed for vertical centering */
+    padding: 20px;
+}
+
+.error h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.error p {
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.error a {
+    display: inline-block;
+    background-color: #787676;
+    color: #FFF;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.error a:hover {
+    background-color: #3a3b3b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .error {
+        margin-top: 10vh; /* Adjust margin for smaller screens */
+    }
+
+    .error h2 {
+        font-size: 1.8em; /* Decrease font size for smaller screens */
+    }
+
+    .error p {
+        font-size: 1.2em; /* Decrease font size for smaller screens */
+    }
+
+    .error a {
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+    }
+}

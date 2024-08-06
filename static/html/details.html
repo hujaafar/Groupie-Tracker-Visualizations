@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Details.Name}}</title>
+    <link rel="stylesheet" href="/static/css/details.css">
+    <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="details-container">
+        <button class="home-button" onclick="goBack()"> <i class="fa-solid fa-arrow-left"></i></button>
+        
+        
+        <!-- Artist details section -->
+        <div class="section">
+            <div class="detail-item">
+                <img src="{{.Details.Image}}" alt="{{.Details.Name}} Image" class="detail-image">
+            </div>
+            <h1>{{.Details.Name}}</h1>
+           
+            <div class="detail-item">
+                <span class="detail-title">Creation Date:</span>
+                <span class="detail-value">{{.Details.CreationDate}}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-title">First Album:</span>
+                <span class="detail-value">{{.Details.FirstAlbum}}</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <button class="collapsible">Members</button>
+            <div class="content">
+                <ul>
+                    {{range .Details.Members}}
+                    <li>{{.}}</li>
+                    {{end}}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Locations section -->
+        <div class="section">
+            <button class="collapsible">Locations</button>
+            <div class="content">
+                <ul>
+                    {{range .Location.Locations}}
+                    <li>{{.}}</li>
+                    {{end}}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Dates section -->
+        <div class="section">
+            <button class="collapsible">Dates</button>
+            <div class="content">
+                <ul>
+                    {{range .Dates.Dates}}
+                    <li>{{.}}</li>
+                    {{end}}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Relations section -->
+        <div class="section">
+            <button class="collapsible">Relations</button>
+            <div class="content">
+                <ul>
+                    {{range $location, $dates := .Relations.DatesLocation}}
+                    <li>{{$location}}: {{range $dates}}{{.}}, {{end}}</li>
+                    {{end}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var collapsibles = document.querySelectorAll('.collapsible');
+            collapsibles.forEach(function(collapsible) {
+                collapsible.addEventListener('click', function() {
+                    var content = this.nextElementSibling;
+                    content.classList.toggle('show');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

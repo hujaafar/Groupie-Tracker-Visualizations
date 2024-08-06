@@ -1,0 +1,206 @@
+/* Global styles for HTML and body */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    position: relative;
+    background-color: #fef7fc; /* Set background color */
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* Remove background image */
+    /* background: url("../assets/Crowd.jpg") no-repeat center center fixed; */
+    /* background-size: cover; */
+    filter: blur(px); /* Adjust the blur level as needed */
+    z-index: -1; /* Ensure the pseudo-element is behind all other content */
+}
+
+body {
+    color: #66FCF1;
+}
+
+/* Other styles remain unchanged */
+a {
+    text-decoration: none;
+    color: #242323;
+}
+
+/* Artist Details Page Styles */
+.details-container {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background to enhance readability */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 90%;
+    padding: 20px;
+    margin: 20px auto;
+    font-family: 'Helvetica Neue', sans-serif;
+    position: relative; /* Ensure position context for absolute positioning */
+    color: #000; /* Ensure text is readable */
+    z-index: 1; /* Ensure content is above the blurred background */
+}
+
+.details-container h1 {
+    color: #222;
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.detail-item .detail-image {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.detail-title {
+    font-weight: 600;
+    color: #555;
+    min-width: 120px;
+}
+
+.detail-value {
+    color: #333;
+    flex: 1;
+}
+
+.members-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.members-list li {
+    margin-bottom: 5px;
+}
+
+/* Collapsible sections */
+.collapsible {
+    background-color: #f5f5f5;
+    color: #333;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collapsible:hover {
+    background-color: #e9e9e9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    padding: 0 18px;
+    overflow: hidden;
+    background-color: #fafafa;
+    border-radius: 5px;
+    transition: max-height 0.2s ease-out;
+    max-height: 0;
+}
+
+.content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.content ul li:last-child {
+    border-bottom: none;
+}
+
+.show {
+    max-height: 1000px; /* Adjust as needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .details-container {
+        padding: 15px;
+    }
+
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .detail-title {
+        min-width: auto;
+        margin-bottom: 5px;
+    }
+
+    .collapsible {
+        font-size: 16px;
+    }
+
+    .home-button {
+        font-size: 1em; /* Adjust font size for smaller screens */
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+        top: 5px; /* Move button closer to the top */
+        left: 5px; /* Move button closer to the left */
+    }
+}
+
+@media (max-width: 400px) {
+    .home-button {
+        display: none; /* Hide the home button on screens narrower than 400px */
+    }
+}
+
+.section ul li {
+    color: #000;
+}
+
+/* Home button */
+.home-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #fef7fc;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    z-index: 10; /* Ensure it's above other content */
+    cursor: pointer; /* Ensure cursor changes on hover */
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.home-button:hover {
+    background-color: #b7b6b6;
+}
